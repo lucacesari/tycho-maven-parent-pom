@@ -22,60 +22,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <licenses>
-    <license>
-      <name>Eclipse Public License v1.0</name>
-      <comments>
-        All rights reserved.
-
-        This program and the accompanying materials are made
-        available under the terms of the Eclipse Public License v1.0
-        which accompanies this distribution, and is available at
-        http://www.eclipse.org/legal/epl-v10.htm
-      </comments>
-    </license>
-  </licenses>
-
-
-  <scm>
-    <developerConnection>scm:git:git@github.com:lucacesari/tycho-maven-parent-pom.git</developerConnection>
-    <connection>git://github.com/lucacesari/tycho-maven-parent-pom.git</connection>
-    <url>https://github.com/lucacesari/tycho-maven-parent-pom</url>
-    <tag>HEAD</tag>
-  </scm>
-  <issueManagement>
-    <system>github</system>
-    <url>https://github.com/lucacesari/tycho-maven-parent-pom/issues</url>
-  </issueManagement>
-  <developers>
-    <developer>
-      <id>luca-cesari</id>
-      <name>Luca Cesari</name>
-      <email>luc at cesari.me</email>
-      <roles>
-        <role>Owner</role>
-        <role>Developer</role>
-      </roles>
-    </developer>
-  </developers>
-
-  <distributionManagement>
-    <repository>
-      <id>tycho-parent-pom-release</id>
-      <name>Tycho Parent Pom Repository</name>
-      <url>git:releases://git@github.com:lucacesari/tycho-maven-parent-pom.git</url>
-    </repository>
-    <snapshotRepository>
-      <id>tycho-parent-pom-snapshot</id>
-      <name>Tycho Parent Pom Snapshot Repository</name>
-      <url>git:snapshot://git@github.com:lucacesari/tycho-maven-parent-pom.git</url>
-    </snapshotRepository>
-    <site>
-      <id>tycho-parent-pom-site</id>
-      <url>git:gh-pages://git@github.com:lucacesari/tycho-maven-parent-pom.git</url>
-    </site>
-  </distributionManagement>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
@@ -94,10 +40,6 @@
   </properties>
 
   <pluginRepositories>
-    <pluginRepository>
-      <id>synergian-repo</id>
-      <url>https://raw.github.com/synergian/wagon-git/releases</url>
-    </pluginRepository>
     <pluginRepository>
       <id>tycho</id>
       <url>${tycho-repo.url}</url>
@@ -336,6 +278,34 @@
   </build>
 
   <profiles>
+    <profile>
+      <id>tycho-parent-deploy</id>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>synergian-repo</id>
+          <url>https://raw.github.com/synergian/wagon-git/releases</url>
+        </pluginRepository>
+      </pluginRepositories>
+
+      <distributionManagement>
+        <repository>
+          <id>tycho-parent-pom-release</id>
+          <name>Tycho Parent Pom Repository</name>
+          <url>git:releases://git@github.com:lucacesari/tycho-maven-parent-pom.git</url>
+        </repository>
+        <snapshotRepository>
+          <id>tycho-parent-pom-snapshot</id>
+          <name>Tycho Parent Pom Snapshot Repository</name>
+          <url>git:snapshot://git@github.com:lucacesari/tycho-maven-parent-pom.git</url>
+        </snapshotRepository>
+        <site>
+          <id>tycho-parent-pom-site</id>
+          <url>git:gh-pages://git@github.com:lucacesari/tycho-maven-parent-pom.git</url>
+        </site>
+      </distributionManagement>
+    </profile>
+
     <profile>
       <id>eclipse-sign</id>
       <build>
