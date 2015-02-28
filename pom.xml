@@ -41,6 +41,10 @@
 
   <pluginRepositories>
     <pluginRepository>
+      <id>synergian-repo</id>
+      <url>https://raw.github.com/synergian/wagon-git/releases</url>
+    </pluginRepository>
+    <pluginRepository>
       <id>tycho</id>
       <url>${tycho-repo.url}</url>
       <releases>
@@ -280,13 +284,6 @@
   <profiles>
     <profile>
       <id>tycho-parent-deploy</id>
-
-      <pluginRepositories>
-        <pluginRepository>
-          <id>synergian-repo</id>
-          <url>https://raw.github.com/synergian/wagon-git/releases</url>
-        </pluginRepository>
-      </pluginRepositories>
 
       <distributionManagement>
         <repository>
