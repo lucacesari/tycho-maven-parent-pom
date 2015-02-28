@@ -1,7 +1,8 @@
 # Tycho Maven Parent POM
-[![Build Status](https://travis-ci.org/lucacesari/tycho-maven-parent-pom.svg?branch=master)](https://travis-ci.org/lucacesari/tycho-maven-parent-pom)
+[![Build Status][travis-image]][travis-url]
+[![EPL License][license-image]][license-url]
 
-A parent POM for Eclipse projects.
+A parent POM for Tycho projects.
 
 ## How to use it?
 First of all, add the parent configuration to your pom.
@@ -13,7 +14,7 @@ First of all, add the parent configuration to your pom.
   </parent>
   ```
 
-Then, add the following repository configuration to your pom.
+Add the following repository configuration to your pom.
   ```
   <repositories>
     ...
@@ -31,7 +32,22 @@ Then, add the following repository configuration to your pom.
   </repositories>
   ```
 
+As final step, add a property named **tycho.scmUrl** and set your git
+repository URL as its value.
+  ```
+  <properties>
+    ...
+    <tycho.scmUrl>scm:git:https://github.com/user.name/repository.git</tycho.scmUrl>
+    ....
+  </properties
+  ```
 ## License
-This sofware is released under Eclipse Public Licese v1.0. See the LICENSE
+This software is released under Eclipse Public License v1.0. See the LICENSE
 file for more information.
+
+[travis-url]:https://travis-ci.org/lucacesari/tycho-maven-parent-pom
+[travis-image]:https://img.shields.io/travis/lucacesari/tycho-maven-parent-pom.svg?style=flat-square
+
+[license-url]:LICENSE
+[license-image]:https://img.shields.io/badge/license-EPL-blue.svg?style=flat-square
 
